@@ -14,7 +14,7 @@ import {
   deletePostById,
   getPostById,
   deleteCommentFromPost,
-} from "../api/posts"; // Ensure your API has a function to delete comments
+} from "../api/posts";
 import { useNavigation } from "@react-navigation/native";
 
 const PostDetails = ({ route }) => {
@@ -104,7 +104,6 @@ const PostDetails = ({ route }) => {
         <Text style={styles.description}>Description: {data?.description}</Text>
         <Text style={styles.commentsTitle}>Comments:</Text>
 
-        {/* Comments List */}
         <FlatList
           data={data?.comments}
           keyExtractor={(item) => item.id}
@@ -121,7 +120,6 @@ const PostDetails = ({ route }) => {
                   <Text style={styles.commentUsername}>{item.username}:</Text>
                   <Text style={styles.commentText}>{item.comment}</Text>
                 </View>
-                {/* Delete Button */}
                 <TouchableOpacity
                   onPress={() => deleteComment(item.id)}
                   style={styles.deleteCommentButton}
@@ -136,7 +134,6 @@ const PostDetails = ({ route }) => {
           }
         />
 
-        {/* Add Comment Button */}
         <TouchableOpacity
           onPress={toggleModal}
           style={[styles.button, styles.addButton]}
